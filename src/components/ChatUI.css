@@ -1,0 +1,92 @@
+/* メインチャット画面背景 */
+.main-chat {
+    background-color: #E0F7FA; /* くすんだ水色 */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    overflow-y: auto;
+  }
+  
+  /* ボットのメッセージ吹き出し */
+  .bot-message {
+    background-color: #FFFFFF; /* 白色に変更 */
+    color: #000; /* 黒い文字色 */
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    max-width: 60%;
+    align-self: flex-start;
+  }
+  
+  /* ユーザーのメッセージ吹き出し */
+  .user-message {
+    background-color: #DFFFD6; /* 黄緑色 */
+    color: #000; /* 黒い文字色 */
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    max-width: 60%;
+    align-self: flex-end;
+  }
+  
+  /* サイドバー */
+  .sidebar {
+    background-color: #37474F; /* 落ち着いたグレー */
+    color: #FFFFFF; /* 白い文字色 */
+    width: 250px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* ドロップダウンボックスのトリガー（SelectTrigger） */
+  .sidebar-select-trigger {
+    background-color: #546E7A; /* ダークグレー */
+    color: #FFFFFF; /* 白い文字 */
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  /* SelectTrigger フォーカス時の背景色を維持 */
+  .sidebar-select-trigger:focus {
+    background-color: #546E7A; /* ダークグレー */
+    color: #FFFFFF; /* 白い文字 */
+  }
+  
+  /* ドロップダウンのオプションリスト */
+  .sidebar-select-trigger option {
+    background-color: #FFFFFF; /* オプションリストの背景色を白に設定 */
+    color: #000000; /* 黒い文字 */
+  }
+  
+  /* Startボタン */
+  .sidebar button {
+    background-color: #FF9800; /* オレンジ色に変更 */
+    color: #FFFFFF; /* 白い文字 */
+    border: none;
+    padding: 10px;
+    margin-top: 16px; /* ドロップダウンボックスからの余白を増やす */
+    border-radius: 4px;
+    transition: transform 0.1s ease-in-out; /* クリック時のアニメーション */
+  }
+  
+  /* Startボタンのクリック時にへこむエフェクト */
+  .sidebar button:active {
+    transform: scale(0.95); /* ボタンが少し縮む */
+  }
+  
+  /* Startボタンのホバー効果 */
+  .sidebar button:hover {
+    background-color: #FB8C00; /* マウスホバー時に少し暗く */
+  }
+  
+  /* チャット履歴の文字色 */
+  .chat-history-item {
+    color: #FFFFFF;
+    margin-bottom: 8px;
+  }
+  

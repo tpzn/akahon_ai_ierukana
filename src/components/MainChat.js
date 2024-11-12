@@ -1,29 +1,36 @@
 // src/components/MainChat.js
 import ChatMessages from './main/ChatMessages';
 
-export default function MainChat({ messages, handleSendMessage, inputMessage, setInputMessage }) {
-
-  // Enterキーで送信するためのハンドラ
+export default function MainChat({
+  messages, handleSendMessage, inputMessage, setInputMessage, isChatActive
+}) {
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault(); // Enterでの改行を防止
-      handleSendMessage(); // メッセージ送信
+      e.preventDefault();
+      handleSendMessage();
     }
   };
 
   return (
-    <div className="flex-1 p-4 flex flex-col">
+    <div className="main-chat">
       <ChatMessages messages={messages} />
       <div className="flex mt-4">
         <input
           type="text"
           value={inputMessage}
           onChange={(e) => setInputMessage(e.target.value)}
-          onKeyDown={handleKeyDown}  // Enterキー押下の検出
+          onKeyDown={handleKeyDown}
           className="flex-1 border rounded-l-lg p-2"
           placeholder="メッセージを入力（Shift + Enterで改行）"
+          disabled={!isChatActive}
         />
-        <button onClick={handleSendMessage} className="bg-blue-500 text-white rounded-r-lg p-2">Send</button>
+        <button
+          onClick={handleSendMessage}
+          className="bg-blue-500 text-white rounded-r-lg p-2"
+          disabled={!isChatActive}
+        >
+          Send
+        </button>
       </div>
     </div>
   );

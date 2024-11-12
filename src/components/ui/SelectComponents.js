@@ -1,23 +1,44 @@
-import React, { useState, useRef } from 'react';
+// src/ui/SelectComponents.js
+import React from 'react';
 
 export const Select = ({ children }) => <div className="relative">{children}</div>;
 
 export const SelectTrigger = ({ children, onClick }) => (
-  <button onClick={onClick} className="w-full bg-white border rounded p-2 text-left">
+  <button 
+    onClick={onClick} 
+    className="w-full bg-[#546E7A] text-white border-none rounded p-2 text-left"
+    style={{
+      backgroundColor: '#546E7A', // ダークグレー
+      color: '#FFFFFF', // 白い文字
+    }}
+  >
     {children}
   </button>
 );
 
 export const SelectContent = ({ isOpen, children }) => (
   isOpen ? (
-    <div className="absolute z-10 bg-white border rounded shadow-lg mt-1 w-full">
+    <div 
+      className="absolute z-10 bg-white border rounded shadow-lg mt-1 w-full"
+      style={{
+        backgroundColor: '#FFFFFF', // ドロップダウンの白い背景
+        color: '#000000', // 黒い文字
+      }}
+    >
       {children}
     </div>
   ) : null
 );
 
 export const SelectItem = ({ children, onClick }) => (
-  <div onClick={onClick} className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
+  <div 
+    onClick={onClick} 
+    className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+    style={{
+      backgroundColor: '#FFFFFF', // オプションリストの白い背景
+      color: '#000000', // 黒い文字
+    }}
+  >
     {children}
   </div>
 );

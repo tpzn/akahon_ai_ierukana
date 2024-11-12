@@ -20,7 +20,10 @@ const SubjectSelect = ({ selectedCategory, setSelectedCategory, selectedSubject,
       <div>
         <label className="text-white">専門/専門基礎</label>
         <Select>
-          <SelectTrigger onClick={() => setCategoryOpen(!isCategoryOpen)}>
+          <SelectTrigger 
+            className="sidebar-select-trigger" // スタイル適用
+            onClick={() => setCategoryOpen(!isCategoryOpen)}
+          >
             <SelectValue placeholder={selectedCategory || "選択してください"} />
           </SelectTrigger>
           <SelectContent isOpen={isCategoryOpen}>
@@ -33,7 +36,10 @@ const SubjectSelect = ({ selectedCategory, setSelectedCategory, selectedSubject,
       <div>
         <label className="text-white">科目</label>
         <Select>
-          <SelectTrigger onClick={() => setSubjectOpen(!isSubjectOpen)}>
+          <SelectTrigger 
+            className="sidebar-select-trigger" // スタイル適用
+            onClick={() => setSubjectOpen(!isSubjectOpen)}
+          >
             <SelectValue placeholder={selectedSubject || (selectedCategory ? "科目を選択" : "専門/専門基礎を選択してください")} />
           </SelectTrigger>
           <SelectContent isOpen={isSubjectOpen}>
@@ -49,7 +55,10 @@ const SubjectSelect = ({ selectedCategory, setSelectedCategory, selectedSubject,
       <div>
         <label className="text-white">章</label>
         <Select>
-          <SelectTrigger onClick={() => setChapterOpen(!isChapterOpen)}>
+          <SelectTrigger 
+            className="sidebar-select-trigger" // スタイル適用
+            onClick={() => setChapterOpen(!isChapterOpen)}
+          >
             <SelectValue placeholder={selectedChapter || "章を選択"} />
           </SelectTrigger>
           <SelectContent isOpen={isChapterOpen}>

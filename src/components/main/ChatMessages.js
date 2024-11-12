@@ -53,16 +53,19 @@ export default function ChatMessages({ messages }) {
   };
 
   return (
-    <div className="flex-1 bg-white rounded-lg shadow-md p-4 overflow-y-auto mb-4">
+    <div className="flex-1 overflow-y-auto mb-4">
       {messages.map((message, index) => {
         const formattedMessage = formatResponse(message.content);
         return (
-          <div key={index} className={`flex mb-4 items-start ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+          <div
+            key={index}
+            className={`flex mb-4 items-start ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
+          >
             {message.role === 'bot' && (
               <Bot className="w-10 h-10 mr-2 flex-shrink-0 text-green-600" />
             )}
-            <div className={`p-2 rounded-lg ${message.role === 'user' ? 'bg-green-100 max-w-[50%]' : 'bg-gray-100 max-w-full'}`}>
-              <div className={`text-left ${message.role === 'user' ? 'pr-2' : ''}`}>
+            <div className={`p-2 rounded-lg ${message.role === 'user' ? 'user-message' : 'bot-message'}`}>
+              <div className="text-left">
                 {typeof formattedMessage === 'string' ? (
                   formattedMessage.split('\n').map((line, i) => (
                     <p key={i}>{line}</p>
@@ -92,4 +95,3 @@ export default function ChatMessages({ messages }) {
     </div>
   );
 }
-
