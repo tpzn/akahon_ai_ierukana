@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Sidebar from './Sidebar';
 import MainChat from './MainChat';
 import { sendMessageToAPI } from '../api';
-import './ChatUI.css'; // CSSファイルをインポート
+import './ChatUI.css';
 
 export default function ChatUI() {
   const [messages, setMessages] = useState([]);
@@ -11,8 +11,10 @@ export default function ChatUI() {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedSubject, setSelectedSubject] = useState('');
   const [selectedChapter, setSelectedChapter] = useState('');
+  const [selectedField, setSelectedField] = useState('all'); // 分野の状態を ChatUI に統一
   const [chatId, setChatId] = useState(null);
   const [isChatActive, setIsChatActive] = useState(false);
+  const [chatHistory, setChatHistory] = useState([]);
 
   const handleSendMessage = async () => {
     if (inputMessage.trim() === '') return;
@@ -37,33 +39,45 @@ export default function ChatUI() {
       return;
     }
 
-    // 新しいチャットを開始するためにステートをリセット
-    setMessages([]); // メッセージ履歴をリセット
-    setChatId(Date.now()); // 新しいチャットIDを生成
-    setIsChatActive(true); // チャットをアクティブに設定
+    const newChatId = Date.now();
+    setChatId(newChatId);
+    setIsChatActive(true);
 
-    // プレースホルダーのメッセージを追加
-    const placeholderMessage = { role: 'bot', content: "今日も一緒に勉強がんばりましょう！質問を考えているから、少しお待ちくださいね。" };
+    // プレースホルダーメッセージを最初に表示
+    const placeholderMessage = { role: 'bot', content: "今日も勉強がんばりましょう！質問を考えているから、少しお待ちくださいね。" };
     setMessages([placeholderMessage]);
 
-    const initialMessage = `カテゴリ：${selectedCategory}、科目：${selectedSubject}、章：${selectedChapter}の重要語句を問いかけてください。`;
+    // `selectedField` を含む初回メッセージを生成
+    const initialMessage = `カテゴリ：${selectedCategory}、科目：${selectedSubject}、章：${selectedChapter}` +
+      (selectedField && selectedField !== 'all' ? `、分野：${selectedField}` : '') +
+      "の重要語句を問いかけてください。";
 
-    // 初期メッセージを送信（ユーザーには表示しない）
     try {
-      const response = await sendMessageToAPI(initialMessage, Date.now());
+      const response = await sendMessageToAPI(initialMessage, newChatId);
       const botMessage = { role: 'bot', content: response };
 
-      // プレースホルダーを削除してAPIからのレスポンスを追加
-      setMessages((prevMessages) => [
-        ...prevMessages.filter((message) => message !== placeholderMessage),
-        botMessage,
-      ]);
+      // プレースホルダーを削除して API の応答メッセージを追加
+      setMessages([botMessage]);
+      updateChatHistory(newChatId, [botMessage]);
     } catch (error) {
       console.error("API呼び出しエラー:", error);
-      setMessages((prevMessages) => [
-        ...prevMessages.filter((message) => message !== placeholderMessage),
-        { role: 'bot', content: "エラーが発生しました。もう一度お試しください。" }
-      ]);
+      setMessages([{ role: 'bot', content: "エラーが発生しました。もう一度お試しください。" }]);
+    }
+  };
+
+  const updateChatHistory = (id, messages) => {
+    const title = `${new Date().toLocaleDateString()} ${selectedSubject} ${selectedChapter}` +
+      (selectedField !== 'all' ? ` (${selectedField})` : '');
+    const newChat = { id, title, messages };
+    setChatHistory((prevHistory) => [newChat, ...prevHistory]);
+  };
+
+  const loadChatHistory = (id) => {
+    const chat = chatHistory.find((chat) => chat.id === id);
+    if (chat) {
+      setMessages(chat.messages);
+      setChatId(chat.id);
+      setIsChatActive(true);
     }
   };
 
@@ -73,7 +87,10 @@ export default function ChatUI() {
         selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}
         selectedSubject={selectedSubject} setSelectedSubject={setSelectedSubject}
         selectedChapter={selectedChapter} setSelectedChapter={setSelectedChapter}
+        selectedField={selectedField} setSelectedField={setSelectedField} // 分野の状態を Sidebar に渡す
         handleStartChat={handleStartChat}
+        chatHistory={chatHistory}
+        loadChatHistory={loadChatHistory}
       />
       <MainChat
         messages={messages}

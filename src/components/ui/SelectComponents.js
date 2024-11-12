@@ -19,11 +19,7 @@ export const SelectTrigger = ({ children, onClick }) => (
 export const SelectContent = ({ isOpen, children }) => (
   isOpen ? (
     <div 
-      className="absolute z-10 bg-white border rounded shadow-lg mt-1 w-full"
-      style={{
-        backgroundColor: '#FFFFFF', // ドロップダウンの白い背景
-        color: '#000000', // 黒い文字
-      }}
+      className="select-content absolute z-10 shadow-lg mt-1 w-full"
     >
       {children}
     </div>

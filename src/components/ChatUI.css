@@ -49,38 +49,58 @@
     margin-bottom: 8px;
     outline: none;
     cursor: pointer;
+    border: none;
   }
   
-  /* SelectTrigger フォーカス時の背景色を維持 */
-  .sidebar-select-trigger:focus {
+  /* SelectTrigger フォーカス時とホバー時の背景色を維持 */
+  .sidebar-select-trigger:focus,
+  .sidebar-select-trigger:hover {
     background-color: #546E7A; /* ダークグレー */
     color: #FFFFFF; /* 白い文字 */
   }
   
   /* ドロップダウンのオプションリスト */
-  .sidebar-select-trigger option {
-    background-color: #FFFFFF; /* オプションリストの背景色を白に設定 */
-    color: #000000; /* 黒い文字 */
+  .select-content {
+    max-height: 150px; /* ドロップダウンの最大高さを設定 */
+    overflow-y: auto; /* 縦スクロールを有効に */
+    background-color: #FFFFFF; /* ドロップダウンの背景色 */
+    border: 1px solid #ccc; /* ドロップダウンの境界線 */
+    border-radius: 4px;
+    position: absolute;
+    z-index: 10;
+  }
+  
+  /* ドロップダウンのオプション */
+  .select-option {
+    background-color: #FFFFFF; /* 白背景 */
+    color: #000000; /* 黒文字 */
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .select-option:hover {
+    background-color: #E0E0E0; /* ホバー時の薄い灰色 */
   }
   
   /* Startボタン */
-  .sidebar button {
-    background-color: #FF9800; /* オレンジ色に変更 */
+  .sidebar-button {
+    background-color: #FF9800; /* オレンジ色に設定 */
     color: #FFFFFF; /* 白い文字 */
     border: none;
     padding: 10px;
     margin-top: 16px; /* ドロップダウンボックスからの余白を増やす */
     border-radius: 4px;
     transition: transform 0.1s ease-in-out; /* クリック時のアニメーション */
+    width: 100%;
   }
   
   /* Startボタンのクリック時にへこむエフェクト */
-  .sidebar button:active {
+  .sidebar-button:active {
     transform: scale(0.95); /* ボタンが少し縮む */
   }
   
   /* Startボタンのホバー効果 */
-  .sidebar button:hover {
+  .sidebar-button:hover {
     background-color: #FB8C00; /* マウスホバー時に少し暗く */
   }
   
@@ -88,5 +108,14 @@
   .chat-history-item {
     color: #FFFFFF;
     margin-bottom: 8px;
+  }
+  
+  /* Sidebar 内のスクロール可能な履歴表示ボックス */
+  .chat-history-box {
+    max-height: 200px; /* 履歴ボックスの高さを調整 */
+    overflow-y: auto; /* 縦スクロールを有効に */
+    padding: 8px;
+    background-color: #2C3E50; /* 履歴ボックスの背景色 */
+    border-radius: 4px;
   }
   
