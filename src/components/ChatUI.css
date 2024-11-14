@@ -1,0 +1,152 @@
+/* メインチャット画面背景 */
+.main-chat {
+    background-color: #E0F7FA; /* くすんだ水色 */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    overflow-y: auto;
+  }
+  
+  /* ボットのメッセージ吹き出し */
+  .bot-message {
+    background-color: #FFFFFF; /* 白色に変更 */
+    color: #000; /* 黒い文字色 */
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    max-width: 60%;
+    align-self: flex-start;
+  }
+  
+  /* ユーザーのメッセージ吹き出し */
+  .user-message {
+    background-color: #DFFFD6; /* 黄緑色 */
+    color: #000; /* 黒い文字色 */
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    max-width: 60%;
+    align-self: flex-end;
+  }
+  
+  /* サイドバー */
+  .sidebar {
+      background-color: #37474F;
+      color: #FFFFFF;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      resize: horizontal; /* 横方向にリサイズ可能 */
+      overflow: auto;
+      max-width: 50vw; /* 最大幅を画面の半分まで */
+      min-width: 200px; /* 最小幅 */
+      border-right: 1px solid #ccc;
+  }
+  
+  /* ドロップダウンボックスのトリガー（SelectTrigger） */
+  .sidebar-select-trigger {
+    background-color: #546E7A; /* ダークグレー */
+    color: #FFFFFF; /* 白い文字 */
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    outline: none;
+    cursor: pointer;
+    border: none;
+  }
+  
+  /* SelectTrigger フォーカス時とホバー時の背景色を維持 */
+  .sidebar-select-trigger:focus,
+  .sidebar-select-trigger:hover {
+    background-color: #546E7A; /* ダークグレー */
+    color: #FFFFFF; /* 白い文字 */
+  }
+  
+  /* ドロップダウンのオプションリスト */
+  .select-content {
+    max-height: 150px; /* ドロップダウンの最大高さを設定 */
+    overflow-y: auto; /* 縦スクロールを有効に */
+    background-color: #FFFFFF; /* ドロップダウンの背景色 */
+    border: 1px solid #ccc; /* ドロップダウンの境界線 */
+    border-radius: 4px;
+    position: absolute;
+    z-index: 10;
+  }
+  
+  /* ドロップダウンのオプション */
+  .select-option {
+    background-color: #FFFFFF; /* 白背景 */
+    color: #000000; /* 黒文字 */
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .select-option:hover {
+    background-color: #E0E0E0; /* ホバー時の薄い灰色 */
+  }
+  
+  /* Startボタン */
+  .sidebar-button {
+    background-color: #FF9800; /* オレンジ色に設定 */
+    color: #FFFFFF; /* 白い文字 */
+    border: none;
+    padding: 10px;
+    margin-top: 16px; /* ドロップダウンボックスからの余白を増やす */
+    border-radius: 4px;
+    transition: transform 0.1s ease-in-out; /* クリック時のアニメーション */
+    width: 100%;
+  }
+  
+  /* Startボタンのクリック時にへこむエフェクト */
+  .sidebar-button:active {
+    transform: scale(0.95); /* ボタンが少し縮む */
+  }
+  
+  /* Startボタンのホバー効果 */
+  .sidebar-button:hover {
+    background-color: #FB8C00; /* マウスホバー時に少し暗く */
+  }
+  
+  /* チャット履歴の文字色 */
+  .chat-history-item {
+    color: #FFFFFF;
+    margin-bottom: 8px;
+  }
+  
+  /* Sidebar 内のスクロール可能な履歴表示ボックス */
+  .chat-history-box {
+    max-height: 200px; /* 履歴ボックスの高さを調整 */
+    overflow-y: auto; /* 縦スクロールを有効に */
+    padding: 8px;
+    background-color: #2C3E50; /* 履歴ボックスの背景色 */
+    border-radius: 4px;
+  }
+
+/* ドロップダウンメニューのスタイル */
+  .dropdown-menu {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background-color: #FFFFFF;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    width: 150px;
+    z-index: 10;
+  }
+
+  /* メニューアイテムのスタイル */
+  .dropdown-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    color: #000000;
+    text-align: left;
+    font-size: 0.875rem;
+  }
+
+  .dropdown-item:hover {
+    background-color: #f0f0f0;
+  }
+  
