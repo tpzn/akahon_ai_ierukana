@@ -32,12 +32,16 @@
   
   /* サイドバー */
   .sidebar {
-    background-color: #37474F; /* 落ち着いたグレー */
-    color: #FFFFFF; /* 白い文字色 */
-    width: 250px;
+    background-color: #37474F;
+    color: #FFFFFF;
     padding: 16px;
     display: flex;
     flex-direction: column;
+    resize: horizontal; /* 横方向にリサイズ可能 */
+    overflow: auto;
+    max-width: 50vw; /* 最大幅を画面の半分まで */
+    min-width: 200px; /* 最小幅 */
+    border-right: 1px solid #ccc;
   }
   
   /* ドロップダウンボックスのトリガー（SelectTrigger） */
@@ -118,4 +122,32 @@
     background-color: #2C3E50; /* 履歴ボックスの背景色 */
     border-radius: 4px;
   }
+
+  /* ドロップダウンメニューのスタイル */
+.dropdown-menu {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background-color: #FFFFFF;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  width: 150px;
+  z-index: 10;
+}
+
+/* メニューアイテムのスタイル */
+.dropdown-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #000000;
+  text-align: left;
+  font-size: 0.875rem;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
   
