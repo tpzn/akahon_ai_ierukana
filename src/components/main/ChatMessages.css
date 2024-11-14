@@ -1,0 +1,23 @@
+/* src/components/main/ChatMessages.css */
+
+@keyframes dots {
+    0% { content: "."; }
+    33% { content: ".."; }
+    66% { content: "..."; }
+    100% { content: ""; }
+  }
+  
+  .loading-dots.animate-dots::after {
+    content: '';
+    animation: dots 1s steps(3, end) infinite;
+  }
+  
+  @keyframes fadeInOut {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+  
+  .loading-message.animate-fade {
+    animation: fadeInOut 2s ease-in-out infinite;
+  }
+  
