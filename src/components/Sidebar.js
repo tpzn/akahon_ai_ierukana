@@ -1,5 +1,5 @@
 // src/components/Sidebar.js
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { signOut } from '@aws-amplify/auth';
 import SubjectSelect from './sidebar/SubjectSelect';
 import { FiUser } from 'react-icons/fi'; // 人のアイコンをインポート
@@ -15,6 +15,8 @@ export default function Sidebar({
   userName, // ユーザー名を Sidebar に渡す
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // メニューの表示状態を管理
+  const [sidebarWidth, setSidebarWidth] = useState(250); // サイドバーの初期幅を設定
+  const sidebarRef = useRef();
 
   const handleLogout = async () => {
     try {
@@ -25,8 +27,35 @@ export default function Sidebar({
     }
   };
 
+  // サイドバーのリサイズ処理
+  const handleMouseDown = (e) => {
+    e.preventDefault();
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+  };
+
+  const handleMouseMove = (e) => {
+    const newWidth = Math.min(Math.max(200, e.clientX), window.innerWidth / 2);
+    setSidebarWidth(newWidth);
+  };
+
+  const handleMouseUp = () => {
+    document.removeEventListener('mousemove', handleMouseMove);
+    document.removeEventListener('mouseup', handleMouseUp);
+  };
+
   return (
-    <div className="sidebar resizable">
+    <div 
+      className="sidebar" 
+      style={{ width: `${sidebarWidth}px` }} 
+      ref={sidebarRef}
+    >
+      {/* リサイズハンドル */}
+      <div 
+        className="sidebar-resize-handle" 
+        onMouseDown={handleMouseDown} 
+      />
+
       <div className="header flex items-center mb-4 relative">
         {/* 人のアイコン（クリックでメニューをトグル） */}
         <FiUser 
