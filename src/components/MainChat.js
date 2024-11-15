@@ -15,14 +15,14 @@ export default function MainChat({
     <div className="main-chat">
       <ChatMessages messages={messages} />
       <div className="flex mt-4">
-        <input
-          type="text"
+        <textarea
           value={inputMessage}
           onChange={(e) => setInputMessage(e.target.value)}
           onKeyDown={handleKeyDown}
-          className="flex-1 border rounded-l-lg p-2"
+          className="flex-1 border rounded-l-lg p-2 resize-none"  // textareaではresizeを無効化
           placeholder="メッセージを入力（Shift + Enterで改行）"
           disabled={!isChatActive}
+          rows="3"  // デフォルトの行数を設定
         />
         <button
           onClick={handleSendMessage}
