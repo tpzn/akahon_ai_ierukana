@@ -1,10 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "birdeeierukanachat36ae49d3_identitypool_36ae49d3",
+    "identityPoolName": "akahonierukana3c3966a2_identitypool_3c3966a2",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "birdee36ae49d3",
-    "userPoolName": "birdeeierukanachat36ae49d3_userpool_36ae49d3",
+    "resourceNameTruncated": "akahon3c3966a2",
+    "userPoolName": "akahonierukana3c3966a2_userpool_3c3966a2",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -31,22 +31,15 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "birdee36ae49d3_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "akahon3c3966a2_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "36ae49d3",
-    "resourceName": "birdeeierukanachat36ae49d3",
+    "sharedId": "3c3966a2",
+    "resourceName": "akahonierukana3c3966a2",
     "authSelections": "identityPoolAndUserPool",
-    "useDefault": "defaultSocial",
-    "hostedUI": true,
+    "useDefault": "default",
     "usernameAttributes": [
       "email"
     ],
-    "hostedUIDomainName": "birdee-ierukanachat",
-    "authProvidersUserPool": [
-      "Google"
-    ],
-    "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://d3j2u4pgfzulzz.cloudfront.net/\"],\"LogoutURLs\":[\"https://d3j2u4pgfzulzz.cloudfront.net/\"]}",
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,

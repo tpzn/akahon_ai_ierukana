@@ -3,30 +3,15 @@
 
 const awsmobile = {
     "aws_project_region": "ap-northeast-1",
-    "aws_cognito_identity_pool_id": "ap-northeast-1:d0467ac0-07b7-4855-8426-b53231a7d228",
+    "aws_cognito_identity_pool_id": "ap-northeast-1:e7e69ecd-5538-4099-bce7-8639f4bdbc23",
     "aws_cognito_region": "ap-northeast-1",
-    "aws_user_pools_id": "ap-northeast-1_rfSQEKjsS",
-    "aws_user_pools_web_client_id": "6polklm9tfi17vidmo404e44i6",
-    "oauth": {
-        "domain": "birdee-ierukanachat-dev.auth.ap-northeast-1.amazoncognito.com",
-        "scope": [
-            "phone",
-            "email",
-            "openid",
-            "profile",
-            "aws.cognito.signin.user.admin"
-        ],
-        "redirectSignIn": "https://d3j2u4pgfzulzz.cloudfront.net/",
-        "redirectSignOut": "https://d3j2u4pgfzulzz.cloudfront.net/",
-        "responseType": "code"
-    },
-    "federationTarget": "COGNITO_USER_POOLS",
+    "aws_user_pools_id": "ap-northeast-1_VBVhfQ7Wy",
+    "aws_user_pools_web_client_id": "6klob7q0i86159bp2qs1i0m889",
+    "oauth": {},
     "aws_cognito_username_attributes": [
         "EMAIL"
     ],
-    "aws_cognito_social_providers": [
-        "GOOGLE"
-    ],
+    "aws_cognito_social_providers": [],
     "aws_cognito_signup_attributes": [
         "EMAIL"
     ],

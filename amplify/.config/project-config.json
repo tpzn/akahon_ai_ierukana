@@ -1,8 +1,6 @@
 {
-  "providers": [
-    "awscloudformation"
-  ],
-  "projectName": "BirdeeIerukanaChat",
+  "whyContinueWithGen1": "Prefer not to answer",
+  "projectName": "akahonierukana",
   "version": "3.1",
   "frontend": "javascript",
   "javascript": {
@@ -10,8 +8,11 @@
     "config": {
       "SourceDir": "src",
       "DistributionDir": "build",
-      "BuildCommand": "npm run build",
-      "StartCommand": "npm start"
+      "BuildCommand": "npm.cmd run-script build",
+      "StartCommand": "npm.cmd run-script start"
     }
-  }
+  },
+  "providers": [
+    "awscloudformation"
+  ]
 }
